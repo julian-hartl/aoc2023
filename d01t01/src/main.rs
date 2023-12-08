@@ -1,6 +1,5 @@
 use std::fs::File;
 use std::io::{BufRead, BufReader, Read};
-use std::time::Instant;
 
 use anyhow::{anyhow, Result};
 
