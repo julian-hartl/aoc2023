@@ -7,14 +7,11 @@ use anyhow::{anyhow, Result};
 const INPUT_FILE_PATH: &str = "input.txt";
 
 fn main() -> Result<()> {
-    let start = Instant::now();
     let input_file: File = File::open(INPUT_FILE_PATH)?;
     let calibration_document = CalibrationDocument::read(&mut BufReader::new(input_file))?;
     let calibration_values = CalibrationValues::try_from(&calibration_document)?;
     let sum = calibration_values.sum();
-    let end = Instant::now();
     println!("{sum}");
-    println!("Calculated sum in {} µs", (end - start).as_micros());
     Ok(())
 }
 
